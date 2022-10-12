@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 250,
+    "title": "Month's with the highest police killings in USA 2015",
+    
+    "data": {
+    "url":
+    "https://raw.githubusercontent.com/YansenGunawanTjeng/FIT-3179/main/police_killings.csv"
+    },
+  "encoding": {
+    "x": {"field": "month", "type": "nominal"},
+    "y": {"aggregate": "count", "type": "quantitative"}
+  },
+  "layer": [{
+    "mark": "line"
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "center",
+      "baseline": "bottom",
+      "dx": 3
+    },
+    "encoding": {
+      "text": {"aggregate": "count", "type": "quantitative"}
+    }
+  }]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <title>Data Visualisation 2 Assignment Draft</title>
+
+<style> 
+body *{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.page {
+  width: 1100px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
+  padding-top: 35px;
+}
+
+.pure-g {
+  text-align: center;
+  border-bottom: solid;
+  background-color: #F1F1F1;
+  padding: 20px;
+}
+
+.pure-g4 {
+  border-bottom: solid;
+  
+}
+.vis-container {
+  width: 100%;
+}
+.vis-container {
+  float: right;
+}
+.vis-container {
+  float: left;
+}
+
+.description h2,
+h1 {
+    margin-top: 0px;
+    text-align:center;
+}
+.description-left {
+    padding-right: 20px;
+    float: left
+}
+.description-right {
+    padding-left: 20px;
+    float: right
+}
+.p {
+  text-align:justify;
+}
+</style>
+  
+    
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Police Killings in USA 2015</h1>
+        <p>This is a visualisation that is intended to inform viewers about police killings on USA in 2015. The dataset includes victim's name, age, race, city, state, and etc.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div>
+      <div class="pure-u-1-2">
+        <div id="symbol_map" class="vis-container"></div>
+        <div class="description description-right">
+          <h2>Police Killings based on Months</h2>
+          <p>From the graph we can conclude that police killings mostly Occurs in March with 114 cases recorded followed by April, January, February, May and lastly June with only 2 cases recorded.</p>
+        </div>
+        </div>
+        <div>
+      <div class="pure-u-2-3">
+        <div id="symbol_map2" class="vis-container2"></div>
+        <div class="description description-left">
+          <h2>Cause of Death based on Race/Ethnicity</h2>
+          <p>From the stacked bar chart, most of the victims was shot to death followed by Taser, strucked by vehicle, death in custody, and few unknown cause of death.</p>
+        </div>
+        <div class="pure-g4">
+      <div class="pure-u-3-2"></div> 
+        <div id="symbol_map3" class="vis-container3"></div> 
+      </div>
+
+    </div>
+    <!-- end pure grid group -->
+
+  </div> <!-- end page -->
+    
+<script type="text/javascript">
+
+var map = "mapchart.json"; 
+  vegaEmbed('#symbol_map', map ,{"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+var line = "linechart.json"; 
+  vegaEmbed('#symbol_map2', line ,{"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  var bar = "barchart.json"; 
+  vegaEmbed('#symbol_map3', bar ,{"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+
+</body>
+</html>
