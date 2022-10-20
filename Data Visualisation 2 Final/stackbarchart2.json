@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height":300,
+    "width":300,
+    "data": {"url": "https://raw.githubusercontent.com/YansenGunawanTjeng/FIT-3179/main/police_killings.csv"},
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "armed",
+        "type": "nominal",
+        "title": "Whether Armed or Not?"
+      },
+      "x": {
+        "aggregate": "count",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "raceethnicity",
+        "type": "nominal",
+        "title": "Race / Ethnicity",
+        "scale": {
+          "range": ["#7570B3",
+  "#D95F02",
+  "#E7298A",
+  "#1B9E77",
+  "#66A61E",
+  "#E6AB02"
+  ]}
+      }
+        
+  
+        
+        }
+       
+      }
+  
