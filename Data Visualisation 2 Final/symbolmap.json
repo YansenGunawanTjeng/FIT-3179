@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {"width": 1000,
+  "height": 450,
+  "title": "Police Killings USA based on Race/Ethnicity on Each States 2015",
+  "projection": {"type": "albersUsa"},
+  "layer": [
+  {
+  "data": {
+  "url":
+  "https://vega.github.io/vega-tutorials/airports/data/us-10m.json",
+  "format": {"type": "topojson", "feature":
+  "states"}
+  },
+  "mark": {"type": "geoshape", "fill": "lightgray", "stroke":
+  "white"}
+  },
+  {
+  "data": {
+  "url":
+  "https://raw.githubusercontent.com/YansenGunawanTjeng/FIT-3179/main/police_killings.csv"
+  },
+  "params":[
+{
+"name": "continent_highlight",
+"select": {"type": "point", "fields": ["raceethnicity"]},
+"bind": "legend"
+}
+],
+  "mark": {"type": "circle", "tooltip": 
+  {"content": "encoding"}},
+  "transform":[{"filter":{"param":"brush"}}],
+  "encoding": {
+  "longitude": {"field": "longitude", "type":
+  "quantitative"},
+  "latitude": {"field": "latitude", "type":
+  "quantitative"},
+ "tooltip": [
+   {"field":"name", "type":"nominal"},
+   {"field":"age", "type":"quantitative"},
+   {"field":"gender", "type":"nominal"},
+   {"field":"raceethnicity", "type":"nominal"},
+   {"field":"city", "type":"nominal"},
+   {"field":"cause", "type":"nominal"}
+
+ ], 
+
+  "color": {
+  "field": "raceethnicity",
+  "type": "nominal",
+  "scale": {"domain": [
+      "Asian/Pacific Islander",
+      "Black",
+      "Hispanic/Latino",
+      "Native American",
+      "Unknown",
+      "White"
+    ],
+    "range": [
+"#7570B3",
+"#D95F02",
+"#E7298A",
+"#1B9E77",
+"#66A61E",
+"#E6AB02"
+]
+},
+  "title": "Cases Recorded per States"
+   },
+   "opacity":{"condition": {"param": "continent_highlight", "value": 1},
+"value": 0.1
+}
+
+  }
+  }
+  ]
+},{"height":100,
+"width": 1000,
+"data": {
+  "url": "https://raw.githubusercontent.com/YansenGunawanTjeng/FIT-3179/main/police_killings.csv",
+  "format": {"parse": {"month": "date:'%B'"}}
+},
+"mark": "line",
+"params": [
+{"name": "brush", "select": {"type": "interval",
+"encodings": ["x"]}}
+],
+"encoding": {
+  "x": {
+    "field": "month",
+    "type": "temporal",
+    "timeUnit": "month",
+    "title": "Month",
+    "axis": {"labelAngle": 0}
+  },
+  "y": {"aggregate": "count", "type": "quantitative"},
+  "color": {"field": "raceethnicity", "type": "nominal"}
+}
+}]
+}    
+
+
